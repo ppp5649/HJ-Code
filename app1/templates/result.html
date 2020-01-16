@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width={device-width}, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <h1>총 {{ total }}개의 단어로 이루어져 있습니다</h1>
+    <br>
+    <h1>원문</h1>
+    {{ fulltxt }}
+    <br>
+    <h1>단어</h1>
+    {% for a,b in dictionary %}
+    {{a}}:{{b}}
+    {% endfor %}
+    <h1>3글자 이상인 단어들</h1>
+    {% for word in great_num %}
+    {{word}}
+    {% endfor %}
+    <br><br>
+    <a href="{% url 'home' %}"><span class="badge badge-primary">Home</span></a>
+</body>
+</html>
